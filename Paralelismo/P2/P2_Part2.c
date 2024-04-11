@@ -19,12 +19,14 @@ int MPI_BinomialBCast(void *buff, int count, MPI_Datatype datatype, MPI_Comm com
             errono = MPI_Recv(buff, count, datatype, dest, 0, comm, MPI_STATUS_IGNORE);
             if(errono != MPI_SUCCESS) return errono;
         }
-
+        
         dist *= 2;
     }
     
     return MPI_SUCCESS;
 }
+
+
 
 int MPI_FlattreeColectiva( void * buff , void * recvbuff , int count , MPI_Datatype datatype, int root , MPI_Comm comm){
 
@@ -34,11 +36,14 @@ int MPI_FlattreeColectiva( void * buff , void * recvbuff , int count , MPI_Datat
     MPI_Comm_size(MPI_COMM_WORLD,&numprocs);
     MPI_Comm_rank(MPI_COMM_WORLD,&rank);
 
+    //Asumimos que si no le pasamos un doble devuelve un error
     if(datatype != MPI_DOUBLE) return MPI_ERR_TYPE;
     if(comm != MPI_COMM_WORLD) return MPI_ERR_COMM;
     if(count == 0) return MPI_ERR_COUNT;
     if(buff == NULL) return MPI_ERR_BUFFER;
 
+    //Aqui si es double hace esta función, si queremos admitir otros MPI_DATATYPE, bastaría con añadir un switch
+    //En que cada caso sea un tipo de dato MPI y la función a realizar con ese datatype
     if(!rank){
         for (i = 1; i < numprocs; i++) {
             aux += *(double*) buff;
@@ -85,7 +90,6 @@ int main(int argc, char *argv[]){
         MPI_FlattreeColectiva(&pi,&piF,1,MPI_DOUBLE,0,MPI_COMM_WORLD);
 
         if(!rank) printf("pi is approximately %.16f, Error is %.16f\n", piF, fabs(piF - PI25DT));
-
     }
 
     MPI_Finalize();
