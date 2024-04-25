@@ -115,8 +115,6 @@ int main(int argc, char *argv[] ) {
 
     print_Time(rank,"Gather Time (seconds)",tv1,tv2);
 
-
-
     // * : Display result 
     if(!rank && DEBUG){
         printf("--------RESULT---------\n");
@@ -125,7 +123,6 @@ int main(int argc, char *argv[] ) {
         free(matrix);
         free(result);
     }
-
 
     MPI_Finalize();
 
