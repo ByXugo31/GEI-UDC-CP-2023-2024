@@ -1,4 +1,11 @@
 ## **NOTAS:**
+
+**Concurrencia:**
+
+P1: -
+P2: -
+P3: - 
+
 **Paralelismo:**
 
 P1:0.25 / 0.25  
