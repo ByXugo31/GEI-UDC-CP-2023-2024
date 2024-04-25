@@ -2,11 +2,9 @@
 
 **Concurrencia:**
 
-P1: -
-
-P2: -
-
-P3: -
+P1: - 
+P2: - 
+P3: - 
 
 
 **Paralelismo:**
