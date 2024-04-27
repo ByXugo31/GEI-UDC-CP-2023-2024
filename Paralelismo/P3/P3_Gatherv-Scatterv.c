@@ -6,6 +6,10 @@
 
 #define N 1024
 
+
+// ESTÁ MAL HECHA, PENDIENTE DE CORRECCIÓN
+
+
 // * : FUNCIONES DE DEBUG
 
 /*
