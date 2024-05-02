@@ -63,7 +63,7 @@ void print_Time(int rank, char* str, struct timeval tv1, struct timeval tv2){
 
 int main(int argc, char *argv[] ) {
 
-    int i, j, rank, numprocs, lim, elements, microseconds, extra_rows;
+    int i, j, rank, numprocs, elements, microseconds, extra_rows;
     float vector[N];
     float *result, *matrix;
     struct timeval  tv1, tv2;
