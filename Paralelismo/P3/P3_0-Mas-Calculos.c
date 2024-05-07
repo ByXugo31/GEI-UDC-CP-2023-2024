@@ -131,10 +131,13 @@ int main(int argc, char *argv[] ) {
     print_Time(rank,"Gather Time (seconds)",tv1,tv2);
 
     // * : Display result 
-    if(!rank && DEBUG){
+    if(DEBUG){
         printf("--------RESULT---------\n");
         for(i=0;i<N;i++) printf(" %f \t ",result[i]);
         printf("\n");
+    }
+
+    if(!rank){
         free(matrix);
         free(result);
     }
